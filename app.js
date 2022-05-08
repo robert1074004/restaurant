@@ -48,8 +48,12 @@ app.get('/search',(req,res) => {
     res.render('index',{restaurant:Restaurants,keyword:keyword})
 })
 
-app.get('/restaurants/:restaurant_id',(req,res) => {
-    res.render('show',{restaurant:restaurants.results[req.params.restaurant_id-1]})
+app.get('/restaurants/:id',(req,res) => {
+    const id = req.params.id
+    return Restaurant.findById(id)
+        .lean()
+        .then((restaurant) => res.render('show',{restaurant}))
+        .catch(error => console.log(error))
 })
 
 app.listen(port,() => {
