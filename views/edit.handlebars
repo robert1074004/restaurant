@@ -1,0 +1,42 @@
+<container><form action="/restaurants/{{restaurant._id}}/edit" method="POST" class="mx-auto my-2 p-2 border border-secondary border-2 rounded" style="width:500px;">
+    <div class="mb-2 text-center"><h4>修改餐廳資料</h4></div>
+    <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">name</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" value="{{restaurant.name}}" name="name">
+    </div>
+    <div class="mb-3">
+        <label for="formGroupExampleInput2" class="form-label">name_en</label>
+        <input type="text" class="form-control" id="formGroupExampleInput2" value="{{restaurant.name_en}}" name="name_en">
+    </div>
+    <div class="mb-3">
+        <label for="formGroupExampleInput3" class="form-label">category</label>
+        <input type="text" class="form-control" id="formGroupExampleInput3" value="{{restaurant.category}}" name="category">
+    </div>
+    <div class="mb-3">
+        <label for="formGroupExampleInput4" class="form-label">image</label>
+        <input type="text" class="form-control" id="formGroupExampleInput4" value="{{restaurant.image}}" name="image">
+    </div>
+    <div class="mb-3">
+        <label for="formGroupExampleInput5" class="form-label">location</label>
+        <input type="text" class="form-control" id="formGroupExampleInput5" value="{{restaurant.location}}" name="location">
+    </div>
+    <div class="mb-3">
+        <label for="formGroupExampleInput6" class="form-label">phone</label>
+        <input type="text" class="form-control" id="formGroupExampleInput6" value="{{restaurant.phone}}" name="phone">
+    </div>
+    <div class="mb-3">
+        <label for="formGroupExampleInput7" class="form-label">google_map</label>
+        <input type="text" class="form-control" id="formGroupExampleInput7" value="{{restaurant.google_map}}"
+            name="google_map">
+    </div>
+    <div class="mb-3">
+        <label for="formGroupExampleInput8" class="form-label">rating</label>
+        <input type="number" class="form-control" id="formGroupExampleInput8" value="{{restaurant.rating}}" name="rating" step="0.1">
+    </div>
+    <div class="mb-3">
+        <label for="formGroupExampleInput9" class="form-label">description</label>
+        <input type="text" class="form-control" id="formGroupExampleInput9" value="{{restaurant.description}}"
+            name="description">
+    </div>
+    <div class="mb-2 text-center"><button  class="btn btn-primary" type="submit">update</button></div>
+</form></container>
