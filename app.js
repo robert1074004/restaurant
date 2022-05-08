@@ -28,6 +28,10 @@ app.get('/',(req,res) => {
         .catch(error => console.log(error))
 })
 
+app.get('/restaurants/new',(req,res) => {
+    return res.render('new')
+})
+
 app.get('/search',(req,res) => {
     const keyword = req.query.keyword
     const Restaurants = restaurants.results.filter(restaurant => restaurant.name.toLowerCase().includes(keyword.toLowerCase()))
