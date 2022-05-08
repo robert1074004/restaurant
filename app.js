@@ -3,6 +3,7 @@ const app = express()
 const port = 3000
 const Restaurant = require('./models/restaurant')
 const mongoose = require('mongoose')
+const bodyParser = require('body-parser')
 mongoose.connect('mongodb+srv://root:abc83213@learning.lmzd7.mongodb.net/restaurant?retryWrites=true&w=majority',{ useNewUrlParser: true, useUnifiedTopology: true })
 
 const db = mongoose.connection
@@ -21,6 +22,8 @@ app.set('view engine','handlebars')
 
 app.use(express.static('public'))
 
+app.use(bodyParser.urlencoded({ extended: true }))
+
 app.get('/',(req,res) => {
     Restaurant.find()
         .lean()
@@ -30,6 +33,13 @@ app.get('/',(req,res) => {
 
 app.get('/restaurants/new',(req,res) => {
     return res.render('new')
+})
+
+app.post('/restaurants',(req,res) => {
+    const restaurant = req.body
+    return Restaurant.create(restaurant)
+        .then(() => res.redirect('/'))
+        .catch(error => console.log(error))
 })
 
 app.get('/search',(req,res) => {

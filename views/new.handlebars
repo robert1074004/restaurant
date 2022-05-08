@@ -1,8 +1,42 @@
-<div class="mb-3">
-  <label for="formGroupExampleInput" class="form-label">Example label</label>
-  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input placeholder">
-</div>
-<div class="mb-3">
-  <label for="formGroupExampleInput2" class="form-label">Another label</label>
-  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Another input placeholder">
-</div>
+<container><form action="/restaurants" method="POST" class="mx-auto my-2 p-2 border border-secondary border-2 rounded" style="width:500px;">
+    <div class="mb-2 text-center"><h4>新增餐廳資料</h4></div>
+    <div class="mb-3">
+        <label for="formGroupExampleInput" class="form-label">name</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="name" name="name">
+    </div>
+    <div class="mb-3">
+        <label for="formGroupExampleInput2" class="form-label">name_en</label>
+        <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="name_en" name="name_en">
+    </div>
+    <div class="mb-3">
+        <label for="formGroupExampleInput3" class="form-label">category</label>
+        <input type="text" class="form-control" id="formGroupExampleInput3" placeholder="category" name="category">
+    </div>
+    <div class="mb-3">
+        <label for="formGroupExampleInput4" class="form-label">image</label>
+        <input type="text" class="form-control" id="formGroupExampleInput4" placeholder="https://......." name="image">
+    </div>
+    <div class="mb-3">
+        <label for="formGroupExampleInput5" class="form-label">location</label>
+        <input type="text" class="form-control" id="formGroupExampleInput5" placeholder="location" name="location">
+    </div>
+    <div class="mb-3">
+        <label for="formGroupExampleInput6" class="form-label">phone</label>
+        <input type="text" class="form-control" id="formGroupExampleInput6" placeholder="phone" name="phone">
+    </div>
+    <div class="mb-3">
+        <label for="formGroupExampleInput7" class="form-label">google_map</label>
+        <input type="text" class="form-control" id="formGroupExampleInput7" placeholder="https://....."
+            name="google_map">
+    </div>
+    <div class="mb-3">
+        <label for="formGroupExampleInput8" class="form-label">rating</label>
+        <input type="number" class="form-control" id="formGroupExampleInput8" placeholder="rating" name="rating" step="0.1">
+    </div>
+    <div class="mb-3">
+        <label for="formGroupExampleInput9" class="form-label">description</label>
+        <input type="text" class="form-control" id="formGroupExampleInput9" placeholder="description"
+            name="description">
+    </div>
+    <div class="mb-2 text-center"><button  class="btn btn-primary" type="submit">create</button></div>
+</form></container>
