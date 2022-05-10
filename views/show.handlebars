@@ -37,7 +37,7 @@
         aria-controls="offcanvasExample">
         edit
       </a>
-      <form action="/restaurants/{{restaurant._id}}/delete" method="POST" style="display:inline;">
+      <form action="/restaurants/{{restaurant._id}}?_method=DELETE" method="POST" style="display:inline;">
         <button type="submit" class="btn btn-primary mb-3">delete</button>
       </form>
 
