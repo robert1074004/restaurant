@@ -1,10 +1,15 @@
 # 餐廳清單
-此專案提供8家不同類型的餐廳，讓使用者可以搜尋和查閱詳細資訊
+此專案提供8家不同類型的餐廳，讓使用者可以搜尋、刪除、新增、排序、修改和查閱詳細資訊
 
 ## 功能列表
 * 依照餐廳名稱做搜尋
 * 點擊餐廳圖片查閱詳細資訊
 * 點擊左上角我的餐廳清單回到首頁
+* 點擊detail查閱詳細資訊
+* 點擊create新增餐廳資料
+* 點擊edit修改餐廳資料
+* 點擊delete刪除餐廳資料
+* 點擊sort排序餐廳資料
 
 
 ## 安裝
@@ -24,6 +29,8 @@
  
     npm i express@4.16.4
     npm i express-handlebars@3.0.0
+    npm i mongoose@5.9.7
+    npm install method-override@3.0.0
  6.用nodemon 打開app.js
  
     nodemon app.js
@@ -31,6 +38,7 @@
 
 ## 環境建置
 [Node.js](https://nodejs.org/en/)
+[Robo3T](https://blog.robomongo.org/studio3t-free/)
 
 ## 開發人員
 Robert
