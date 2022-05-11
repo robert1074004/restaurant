@@ -1,8 +1,7 @@
-<container><div class="col-md-6 d-flex justify-content-between align-items-end  mt-3 mx-auto">
+<container><div class="col-md-6 d-flex justify-content-between align-items-end  mt-4 mx-auto">
   <!-- search bar -->
   
         <form action="/search" class="my-0">
-          <h6 class="mb-2">尋找餐廳：</h6>
           <div class="input-group">
             <input type="text" name="keyword" class="form-control" placeholder="輸入餐廳、分類" aria-label="Restaurant Name..."
               value="{{keyword}}" aria-describedby="search-button">
@@ -19,9 +18,9 @@
   </a>
 
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <li><a class="dropdown-item" href="#">A -> Z</a></li>
-    <li><a class="dropdown-item" href="#">Z -> A</a></li>
-    <li><a class="dropdown-item" href="#">類別</a></li>
+    <li><a class="dropdown-item" href="/">A -> Z</a></li>
+    <li><a class="dropdown-item" href="/desc">Z -> A</a></li>
+    <li><a class="dropdown-item" href="/category">類別</a></li>
   </ul>
 </div>
 </div></container>
