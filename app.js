@@ -4,6 +4,7 @@ const exphbs = require('express-handlebars')
 const session = require('express-session')
 const methodOverride = require('method-override')
 const bodyParser = require('body-parser')
+const usePassport = require('./config/passport')
 const port = 3000
 const routes = require('./routes')
 
@@ -23,6 +24,8 @@ app.use(express.static('public'))
 app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use(methodOverride('_method'))
+
+usePassport(app)
 
 app.use(routes)
 
