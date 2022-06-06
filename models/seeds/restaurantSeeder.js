@@ -7,9 +7,9 @@ const db = require('../../config/mongoose')
 
 
 db.once('open',() => {
-    let REstaurant =  restaurants.results.filter(restaurant => restaurant.id>3 && restaurant.id<7)
+    let REstaurant =  restaurants.results.filter(restaurant => restaurant.id<4 )
    REstaurant.forEach(restaurant => {
-        restaurant['userId'] = mongoose.Types.ObjectId("629dbb2d56e866603c02d06d")
+        restaurant['userId'] = mongoose.Types.ObjectId("629e1504b276d955c00ca482")
         Restaurant.create(restaurant)
     });
     console.log('done')
