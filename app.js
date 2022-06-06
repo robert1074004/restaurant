@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const exphbs = require('express-handlebars')
+const session = require('express-session')
 const methodOverride = require('method-override')
 const bodyParser = require('body-parser')
 const port = 3000
@@ -11,6 +12,12 @@ require('./config/mongoose')
 app.engine('hbs',exphbs({defaultLayout:'main',extname:'hbs'}))
 app.set('view engine','hbs')
 
+app.use(session({
+    secret:'ThisIsMySecret',
+    resave:false,
+    saveUninitialized:true
+}))
+
 app.use(express.static('public'))
 
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -18,17 +25,6 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 
 app.use(routes)
-
-// app.get('/',(req,res) => {
-//     Restaurant.find()
-//         .lean()
-//         .then(restaurant => res.render('index',{restaurant}) )
-//         .catch(error => console.log(error))
-// })
-
-
-
-
 
 
 
