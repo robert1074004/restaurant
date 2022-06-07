@@ -5,11 +5,13 @@ const session = require('express-session')
 const methodOverride = require('method-override')
 const bodyParser = require('body-parser')
 const usePassport = require('./config/passport')
-const port = 3000
 const routes = require('./routes')
 const flash = require('connect-flash')
 
+require('dotenv').config()
+
 require('./config/mongoose')
+
 
 app.engine('hbs',exphbs({defaultLayout:'main',extname:'hbs'}))
 app.set('view engine','hbs')
@@ -42,6 +44,6 @@ app.use(routes)
 
 
 
-app.listen(port,() => {
-    console.log(`Express is running on http://localhost:${port}`)
+app.listen(process.env.PORT,() => {
+    console.log(`Express is running on http://localhost:${process.env.PORT}`)
 })

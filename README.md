@@ -1,7 +1,10 @@
 # 餐廳清單
-此專案提供8家不同類型的餐廳，讓使用者可以搜尋、刪除、新增、排序、修改和查閱詳細資訊
+此專案需先註冊帳密再登入，登入後讓使用者可以新增餐廳，有了餐廳資訊可做搜尋、刪除、新增、排序、修改和查閱詳細資訊
 
 ## 功能列表
+* 使用者登入
+* facebook登入
+* 使用者註冊
 * 依照餐廳名稱做搜尋
 * 點擊餐廳圖片查閱詳細資訊
 * 點擊左上角我的餐廳清單回到首頁
@@ -30,7 +33,16 @@
     npm i express@4.16.4
     npm i express-handlebars@3.0.0
     npm i mongoose@5.9.7
-    npm install method-override@3.0.0
+    npm i method-override@3.0.0
+    npm i bcryptjs@2.4.3
+    npm i body-parser@1.20.0
+    npm i connect-flash@0.1.1
+    npm i dotenv@8.2.0
+    npm i express-session@1.17.1
+    npm i passport@0.4.1
+    npm i passport-facebook@3.0.0
+    npm i passport-local@1.0.0
+    
  6.用nodemon 打開app.js
  
     nodemon app.js
