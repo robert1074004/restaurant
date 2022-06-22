@@ -25,28 +25,13 @@
  3.安裝 nodemon
  
     npm install -g nodemon
- 4.npm init：建立 package.json 檔
+ 4.npm install所需要的套件
  
-    npm init -y
- 5.npm install所需要的套件
+    npm install  
+ 5.啟動專案
  
-    npm i express@4.16.4
-    npm i express-handlebars@3.0.0
-    npm i mongoose@5.9.7
-    npm i method-override@3.0.0
-    npm i bcryptjs@2.4.3
-    npm i body-parser@1.20.0
-    npm i connect-flash@0.1.1
-    npm i dotenv@8.2.0
-    npm i express-session@1.17.1
-    npm i passport@0.4.1
-    npm i passport-facebook@3.0.0
-    npm i passport-local@1.0.0
-    
- 6.用nodemon 打開app.js
- 
-    nodemon app.js
- 7.複製顯示在終端機的網址，前往網頁
+    npm run dev
+ 6.複製顯示在終端機的網址，前往網頁
 
 ## 環境建置
 [Node.js](https://nodejs.org/en/)

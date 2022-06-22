@@ -38,15 +38,7 @@ router.put('/:id',(req,res) => {
     const {name,name_en,category,image,location,phone,google_map,rating,description} = req.body
     return Restaurant.findOne({_id,userId})
         .then(restaurants => {
-           restaurants.name = name
-           restaurants.name_en = name_en
-           restaurants.category = category
-           restaurants.image = image
-           restaurants.location = location
-           restaurants.phone = phone
-           restaurants.google_map = google_map
-           restaurants.rating = rating
-           restaurants.description = description
+            restaurants = Object.assign(restaurants, req.body)
             return restaurants.save() 
         })
         .then(() => res.redirect('/'))

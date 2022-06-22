@@ -11,7 +11,7 @@ const flash = require('connect-flash')
 require('dotenv').config()
 
 require('./config/mongoose')
-
+console.log(process.env.MONGODB_URI)
 
 app.engine('hbs',exphbs({defaultLayout:'main',extname:'hbs'}))
 app.set('view engine','hbs')
