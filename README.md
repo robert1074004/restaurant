@@ -17,20 +17,22 @@
  3.安裝 nodemon
  
     npm install -g nodemon
- 4.npm init：建立 package.json 檔
  
-    npm init -y
- 5.npm install所需要的套件
+ 4.npm install所需要的套件
  
-    npm i express@4.16.4
-    npm i express-handlebars@3.0.0
- 6.用nodemon 打開app.js
+    npm install
+    
+ 5.啟動專案
  
-    nodemon app.js
- 7.複製顯示在終端機的網址，前往網頁
+    npm run dev
+ 6.複製顯示在終端機的網址，前往網頁
 
 ## 環境建置
 [Node.js](https://nodejs.org/en/)
+
+## 環境變數設置
+
+MONGODB_URI = mongodb://localhost/restaurant
 
 ## 開發人員
 Robert

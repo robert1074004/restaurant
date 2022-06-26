@@ -4,7 +4,8 @@ const port = 3000
 const Restaurant = require('./models/restaurant')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
-mongoose.connect('mongodb+srv://root:abc83213@learning.lmzd7.mongodb.net/restaurant?retryWrites=true&w=majority',{ useNewUrlParser: true, useUnifiedTopology: true })
+require('dotenv').config()
+mongoose.connect(process.env.MONGODB_URI,{ useNewUrlParser: true, useUnifiedTopology: true })
 
 const db = mongoose.connection
 
@@ -69,15 +70,7 @@ app.post('/restaurants/:id/edit',(req,res) => {
     const restaurant_info = req.body
     return Restaurant.findById(id)
         .then(restaurants => {
-           restaurants.name = restaurant_info.name
-           restaurants.name_en = restaurant_info.name_en
-           restaurants.category = restaurant_info.category
-           restaurants.image = restaurant_info.image
-           restaurants.location = restaurant_info.location
-           restaurants.phone = restaurant_info.phone
-           restaurants.google_map = restaurant_info.google_map
-           restaurants.rating = restaurant_info.rating
-           restaurants.description = restaurant_info.description
+            restaurants = Object.assign(restaurants,restaurant_info)
             return restaurants.save() 
         })
         .then(() => res.redirect('/'))

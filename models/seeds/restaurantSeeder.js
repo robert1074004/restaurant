@@ -1,7 +1,8 @@
 const mongoose = require('mongoose')
 const Restaurant = require('../restaurant')
 const restaurants = require('./restaurant.json')
-mongoose.connect('mongodb+srv://root:abc83213@learning.lmzd7.mongodb.net/restaurant?retryWrites=true&w=majority',{ useNewUrlParser: true, useUnifiedTopology: true })
+require('dotenv').config()
+mongoose.connect(process.env.MONGODB_URI,{ useNewUrlParser: true, useUnifiedTopology: true })
 
 const db = mongoose.connection
 
