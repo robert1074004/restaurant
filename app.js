@@ -38,6 +38,9 @@ app.get('/restaurants/new',(req,res) => {
 
 app.post('/restaurants',(req,res) => {
     const restaurant = req.body
+    if (!restaurant.google_map.includes('https://') || !restaurant.image.includes('https://') || !Number(restaurant.phone)) {      
+        return  res.render('new',{restaurant})
+    }
     return Restaurant.create(restaurant)
         .then(() => res.redirect('/'))
         .catch(error => console.log(error))
@@ -68,6 +71,15 @@ app.get('/restaurants/:id/edit',(req,res) => {
 app.post('/restaurants/:id/edit',(req,res) => {
     const id = req.params.id
     const restaurant_info = req.body
+    if (!restaurant_info.google_map.includes('https://') || !restaurant_info.image.includes('https://') || !Number(restaurant_info.phone)) {      
+        return Restaurant.findById(id)
+                .lean()
+                .then(restaurant => {
+                    restaurant = Object.assign(restaurant,restaurant_info)
+                    res.render('edit',{restaurant})
+                })
+                .catch(err => console.log(err))
+    }
     return Restaurant.findById(id)
         .then(restaurants => {
             restaurants = Object.assign(restaurants,restaurant_info)
