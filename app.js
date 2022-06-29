@@ -71,7 +71,7 @@ app.get('/restaurants/:id/edit',(req,res) => {
 app.post('/restaurants/:id/edit',(req,res) => {
     const id = req.params.id
     const restaurant_info = req.body
-    if (!restaurant_info.google_map.includes('https://') || !restaurant_info.image.includes('https://') || !Number(restaurant_info.phone)) {      
+    if (!restaurant_info.google_map.includes('https://') || !restaurant_info.image.includes('https://') || !Number(restaurant_info.phone.split(' ').join(''))) {      
         return Restaurant.findById(id)
                 .lean()
                 .then(restaurant => {
