@@ -16,9 +16,9 @@ const SEED_USERS = [{
 }]
 
 db.once('open', () => {
-
-    SEED_USERS.forEach(USER => {
-        bcrypt
+    Promise.all(Array.from(SEED_USERS,USER => {
+       
+        return bcrypt
             .genSalt(10)
             .then(salt => bcrypt.hash(USER.password, salt))
             .then(hash => User.create({
@@ -27,24 +27,22 @@ db.once('open', () => {
                 password: hash
             }))
             .then(user => {
-                const userId = user._id
-                const userName = user.name
-                console.log(userName === 'user1')
-                if (userName === "user1") {
-                    const restaurant = restaurants.results.filter(restaurant => restaurant.id < 4)
-                    return Promise.all(Array.from(restaurant, (SEED_RESTAURANT) => {
-                        const {
-                            name,
-                            name_en,
-                            category,
-                            image,
-                            location,
-                            phone,
-                            google_map,
-                            rating,
-                            description
-                        } = SEED_RESTAURANT
-                        Restaurant.create({
+                console.log(user)
+                return Promise.all(Array.from(restaurants.results,(restaurant) => {const {
+                        name,
+                        name_en,
+                        category,
+                        image,
+                        location,
+                        phone,
+                        google_map,
+                        rating,
+                        description,
+                        id
+                    } = restaurant
+                    if (user.name === 'user1' && id<4) {
+                        const userId = user._id
+                        return Restaurant.create({
                             name,
                             name_en,
                             category,
@@ -56,38 +54,24 @@ db.once('open', () => {
                             description,
                             userId
                         })
-
-                    }))
-                }
-                const restaurant = restaurants.results.filter(restaurant => restaurant.id > 3 && restaurant.id < 7)
-                return Promise.all(Array.from(restaurant, (SEED_RESTAURANT) => {
-                    const {
-                        name,
-                        name_en,
-                        category,
-                        image,
-                        location,
-                        phone,
-                        google_map,
-                        rating,
-                        description
-                    } = SEED_RESTAURANT
-                    Restaurant.create({
-                        name,
-                        name_en,
-                        category,
-                        image,
-                        location,
-                        phone,
-                        google_map,
-                        rating,
-                        description,
-                        userId
-                    })
-                }))
+                    } 
+                    if (user.name === 'user2' && id>=4 && id<7) {
+                        const userId = user._id
+                        return Restaurant.create({
+                            name,
+                            name_en,
+                            category,
+                            image,
+                            location,
+                            phone,
+                            google_map,
+                            rating,
+                            description,
+                            userId
+                        })
+                    }
+                }))   
             })
-            .then(() => {
-                console.log('done')
-            })
-    })
+    }))
+    .then(() => process.exit())
 })
